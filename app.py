@@ -7,8 +7,9 @@ import google.generativeai as genai
 st.set_page_config(page_title="AI Manager", layout="wide")
 
 # --- 🧠 AI SETUP (Gemini 3 Flash Preview) ---
-genai.configure(api_key="AIzaSyCsjEoiX5IYEMWY69-vFXm1_-z_xDLCPfE")
-
+# Yeh line aapki key ko system ke secrets se uthaye gi
+api_key = st.secrets["GEMINI_API_KEY"]
+genai.configure(api_key=api_key)
 
 def suggest_priority(task_description):
     try:
@@ -248,3 +249,4 @@ elif choice == "Clients":
                 st.divider()
     else:
         st.write("No clients found.")
+
